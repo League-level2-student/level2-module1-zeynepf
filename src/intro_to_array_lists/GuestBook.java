@@ -22,7 +22,8 @@ public class GuestBook implements ActionListener {
 	JButton buttonTwo = new JButton("View Names");
 	ArrayList<String> list = new ArrayList<String>();
 	public static void main(String[] args) {
-		
+GuestBook book= new GuestBook();
+book.setup();
 	}
 	void setup() {
 		JFrame frame = new JFrame();
@@ -34,6 +35,7 @@ public class GuestBook implements ActionListener {
 		panel.add(buttonOne);
 		panel.add(buttonTwo);
 		buttonOne.addActionListener(this);
+		buttonTwo.addActionListener(this);
 	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -44,8 +46,9 @@ public class GuestBook implements ActionListener {
 			list.add(name);
 		}
 		else if(buttonTwo==pressed) {
-			for (int i = 0; i < list.length; i++) {
-				
+			for (int i = 0; i < list.size(); i++) {
+				String k = list.get(i);
+				JOptionPane.showMessageDialog(null, "Guest #"+(i+1)+": "+k);
 			}
 		}
 	}
